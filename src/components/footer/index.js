@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image'
 
 
-const navlinks = ['Home', 'Mint', 'Markets'];
+const navlinks = ["Home", 'Buy','Price', 'Sell'];
 
 export default function Footer() {
     return (
@@ -11,7 +11,7 @@ export default function Footer() {
                 <div className="flex justify-center gap-4">
 
                     <Link href="/markets" className="flex items-center gap-4">
-                        <h1 className='font-bold text-3xl'>b2USD</h1>
+                        <img src="/images/Logo.png" alt="Logo" className='h-[70px]' />
                     </Link>
                 </div>
 
@@ -25,7 +25,7 @@ export default function Footer() {
                         <div className='grid md:grid-cols-2 gap-y-4 md:gap-y-6'>
                             {
                                 navlinks.map((links, idx) =>
-                                    <Link key={idx} href={links === 'Home' ? '/' : links.toLowerCase()}>{links}</Link>
+                                    <Link key={idx} href={links === 'Home' ? '/' : links.toLowerCase()} className="ml-2">{links}</Link>
                                 )
                             }
                         </div>
@@ -38,7 +38,6 @@ export default function Footer() {
                         <div className='grid gap-y-4 md:gap-y-6'>
                             <a href='#' target='_blank'>Documents</a>
                             <a href='#' target='_blank'>GitHub</a>
-                            <a href='#' target='_blank'>Medium</a>
                         </div>
                     </div>
 
