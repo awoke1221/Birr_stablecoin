@@ -47,11 +47,8 @@ contract B2usdGovernance is Ownable, AccessControl, ReentrancyGuard {
 
     constructor(B2USD _b2usd) Ownable(msg.sender) {
         b2usd = _b2usd;
-        _setRoleAdmin(
-            DEFAULT_ADMIN_ROLE,
-            bytes32(uint256(uint160(msg.sender)))
-        );
-        _setRoleAdmin(GOVERN_ROLE, bytes32(uint256(uint160(msg.sender))));
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(GOVERN_ROLE, msg.sender);
     }
 
     function addCollateralToken(

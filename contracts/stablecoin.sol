@@ -17,11 +17,8 @@ contract B2USD is Ownable, ERC20, AccessControl, ERC20Burnable {
     bytes32 private constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
 
     constructor() ERC20("B2USD Birr", "B2USD") Ownable(msg.sender) {
-        _setRoleAdmin(
-            DEFAULT_ADMIN_ROLE,
-            bytes32(uint256(uint160(msg.sender)))
-        );
-        _setRoleAdmin(MANAGER_ROLE, bytes32(uint256(uint160(msg.sender))));
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(MANAGER_ROLE, msg.sender);
     }
 
     function mintToken(uint256 amount) external {

@@ -25,7 +25,5 @@ contract PriceOracle {
 
         return price;
     }
-
-
     
 }
